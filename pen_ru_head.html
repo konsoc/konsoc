@@ -1,0 +1,53 @@
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+	<title>Сравнительный анализ заболеваемости, смертности и вакцинации от COVID-19</title>
+
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<s--cript src="https://cdn.jsdelivr.net/gh/konsoc-demo/konsoc-demo@main/dist/jquery.csv.min.js"></s--cript>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.11/jquery.csv.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.2.0/papaparse.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+
+	<link href="https://cdn.jsdelivr.net/gh/konsoc/konsoc@main/dist/svgMap.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/gh/konsoc/konsoc@main/dist/svgMap-code3.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/konsoc/konsoc@main/dist/svgmap_countries_en.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/konsoc/konsoc@main/dist/countries-data.js"></script>
+
+	<link href="https://cdn.jsdelivr.net/gh/konsoc/konsoc@main/css/boots-nav.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/gh/konsoc/konsoc@main/dist/boots.js"></script>
+
+	<link href="https://cdn.jsdelivr.net/gh/konsoc/konsoc@main/css/covid_1.03.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/gh/konsoc/konsoc@main/js/apexcharts_locales.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/konsoc/konsoc@main/js/translation_1.03.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/konsoc/konsoc@main/js/main-1.03.js"></script>
+	
+		<script>
+			window.Promise ||
+			document.write('<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>');
+			window.Promise ||
+			document.write('<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>');
+			window.Promise ||
+			document.write('<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>');
+		</script>
+
+<script>
+	
+	var urlBodyLoad = "https://cdn.jsdelivr.net/gh/konsoc/konsoc@main/body_ru_03.html";
+	var locale2code = 'ru';
+		
+    var urlCSV_vaccin_locations = "https://cdn.jsdelivr.net/gh/konsoc/covid-data-1@main/2022.01.03/vaccinations/locations.csv";
+    var urlCSV_vaccin_manufacturer = "https://cdn.jsdelivr.net/gh/konsoc/covid-data-1@main/2022.01.03/vaccinations/vaccinations-by-manufacturer.csv";
+	var urlCSV_new_case = "https://cdn.jsdelivr.net/gh/konsoc/covid-data-1@main/2022.01.03/new_cases.csv";
+	var urlCSV_deaths = "https://cdn.jsdelivr.net/gh/konsoc/covid-data-1@main/2022.01.03/time_series_covid19_deaths_global.csv";
+	var urlCSV_vaccinations = "https://cdn.jsdelivr.net/gh/covid-data-1/konsoc@main/2022.01.03/vaccinations.csv";
+</script>

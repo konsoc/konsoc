@@ -1,0 +1,529 @@
+<header>
+	<!-- ============= COMPONENT ============== -->
+	<nav class="navbar navbar-expand-lg navbar-dark ">
+		<div class="container-fluid">
+
+			<div class="soc_logo_wrapper">
+				<a target="_blank" href="https://t.me/kon_soc_world"><img class="soc_logo"
+						src="https://cdn.jsdelivr.net/gh/konsoc-demo/files-1@master/img/logos/telegram.svg"></a>
+				<a target="_blank" href="https://vimeo.com/user149798668">
+					<img class="soc_logo"
+						src="https://cdn.jsdelivr.net/gh/konsoc-demo/files-1@master/img/logos/vimeo-tile-white.svg"></a>
+				<a target="_blank" href="https://patreon.com/konsoc">
+					<img class="soc_logo"
+						src="https://cdn.jsdelivr.net/gh/konsoc-demo/files-1@master/img/logos/patreon.svg"></a>
+				<a target="_blank" href="https://donationalerts.com/r/konsoc"><img class="soc_logo"
+						src="https://cdn.jsdelivr.net/gh/konsoc-demo/files-1@master/img/logos/donationalerts.svg"></a>
+			</div>
+			<div class="header-logo">
+				<div href="#" class="nav-link nav-logo"><span class="logo-up">KonSoc</span><br>
+					<span class="logo-sub">Consortium&nbsp;of&nbsp;social&nbsp;canons</span>
+				</div>
+			</div>
+
+			<div class="lng_wrap d-flex nav_mobile">
+				<div class="dropdown nav_mobile">
+					<a class="btn btn_lng dropdown-toggle" href="#" role="button" id="btn_current_locale_mobile"
+						data-locale="en" data-bs-toggle="dropdown" aria-expanded="false">
+						<img class="lng_flag"
+							src='https://cdn.jsdelivr.net/npm/flag-icon-css@2.8.0/flags/4x3/gb.svg'>&nbsp;en</a>
+					<ul class="dropdown-menu dropdown-menu-end">
+						<li><a target="_blank" class="dropdown-item" href="https://codepen.io/KonSoc/full/xxrNwOq">
+								<img class="lng_flag"
+									src='https://cdn.jsdelivr.net/npm/flag-icon-css@2.8.0/flags/4x3/ru.svg'>&nbsp;ru</a>
+						</li>
+						<li><a target="_blank" class="dropdown-item active" href="https://codepen.io/KonSoc/full/jOwobrg">
+								<img class="lng_flag"
+									src='https://cdn.jsdelivr.net/npm/flag-icon-css@2.8.0/flags/4x3/gb.svg'>&nbsp;en</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<button class="navbar-toggler nav_mobile collapsed" type="button" data-bs-toggle="collapse"
+				data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-collapse collapse " id="main_nav" >
+
+				<ul class="nav nav-pills navbar-nav">
+					<li class="nav-item">
+						<button class="nav-link active" id="nav-covid-tab" data-bs-toggle="tab"
+							data-bs-target="#pg_covid" type="button" role="tab" aria-controls="pg_covid"
+							aria-selected="true">COVID-map </button>
+					</li>
+					<li class="nav-item">
+						<button class="nav-link" id="nav-manifest-tab" data-bs-toggle="tab"
+							data-bs-target="#pg_manifest" type="button" role="tab" aria-controls="pg_manifest"
+							aria-selected="true">Manifest</button>
+					</li>
+					<li class="nav-item">
+						<button class="nav-link" id="nav-info-tab" data-bs-toggle="tab" data-bs-target="#pg_info"
+							type="button" role="tab" aria-controls="pg_info" aria-selected="true">Info</button>
+					</li>
+				</ul>
+				<div class="nav_desktop">
+					<div class="lng_wrap d-flex">
+						<div class="dropdown">
+							<a class="btn btn_lng dropdown-toggle" href="#" role="button" id="btn_current_locale"
+								data-locale="en" data-bs-toggle="dropdown" aria-expanded="false">
+								<img class="lng_flag"
+									src='https://cdn.jsdelivr.net/npm/flag-icon-css@2.8.0/flags/4x3/gb.svg'>&nbsp;en</a>
+							<ul class="dropdown-menu dropdown-menu-end">
+								<li><a target="_blank" class="dropdown-item" href="https://codepen.io/KonSoc/full/xxrNwOq"><img class="lng_flag"
+											src='https://cdn.jsdelivr.net/npm/flag-icon-css@2.8.0/flags/4x3/ru.svg'>&nbsp;ru</a>
+								</li>
+								<li><a target="_blank" class="dropdown-item active" href="https://codepen.io/KonSoc/full/jOwobrg">
+									<img class="lng_flag"
+											src='https://cdn.jsdelivr.net/npm/flag-icon-css@2.8.0/flags/4x3/gb.svg'>&nbsp;en</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div> <!-- container-fluid.// -->
+	</nav>
+
+	<!-- ============= COMPONENT END// ============== -->
+</header>
+
+
+<div class="tab-content w-100 mt-4 mb-2 " id="curtain_body">
+
+	<div class="tab-pane active show page_wrapper" id="pg_covid" role="tabpanel" aria-labelledby="nav-covid-tab">
+
+		<h1>General comparative analysis of morbidity, mortality and vaccination from COVID-19</h1>
+
+		<div class="d-flex justify-content-center flex-wrap">
+			<div class="chart_container covid_container" >
+
+				<div id="chart_covid" class="chart_div"></div>
+
+				<div id="chart_vaccination_percent" class="chart_div"></div>
+				<div>
+					<label class="form-check-label"><input class="form-check-input" type="radio" name="chart_accuracy"
+							value="4_round"> 4-day average. </label>
+					<label class="form-check-label"><input class="form-check-input" type="radio" name="chart_accuracy"
+							value="7_round"> 7-day average. </label>
+					<label class="form-check-label"><input class="form-check-input" type="radio" name="chart_accuracy"
+							value="7_round_frame" checked> 7-day average "sliding window"</label>
+					<label class="form-check-label"><input class="form-check-input" type="radio" name="chart_accuracy"
+							value="as_is"> Raw numbers </label>
+					<div class="chart_size_wrap">
+						<label for="slct_chart_size">Graphic size: </label>
+						<select class="form-select form-select-sm" aria-label=".form-select-sm example"
+							id="slct_chart_size">
+							<option data-height="250" data-width="350">250x350</option>
+							<option data-height="350" data-width="550">350x550</option>
+							<option data-height="450" data-width="850" selected>450x850</option>
+							<option data-height="700" data-width="1200">700x1200</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="map_container covid_container">
+				<div id="svgMapDeaths"></div>
+				<div class="row slide_date_cap">
+					<p class="p_date_cap p_left"><span id="spnDateBegin"></span> </p>
+					<p class="p_date_cap p_center"><span id="spnDateCurrent"></span></p>
+					<p class="p_date_cap p_right"> <span id="spnDateEnd"></span></p>
+				</div>
+				<label for="dateRange"></label><input type="range" class="form-range" min="1" max="100" value="100"
+					id="dateRange">
+
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="input-group">
+							<label><input type="checkbox" class="form-check-input chk_map"
+									id="chk_map_relative">Relative to population</label>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="input-group">
+							<label for="slct_map_time">Timeframe: </label>
+							<select class="ms-2 form-select form-select-sm" aria-label=".form-select-sm example"
+								id="slct_map_time">
+								<option data-time="7days" selected>7 days</option>
+								<option data-time="all_time">Total/cumulative</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row-not">
+					<label><input type="checkbox" class="form-check-input chk_map" id="chk_map_europe">Europe</label>
+					<label><input type="checkbox" class="form-check-input chk_map" id="chk_map_asia">Asia</label>
+				</div>
+				<div class="map_control_data_container">
+					<label class="form-check-label"><input class="form-check-input" type="radio" name="map_radio_data"
+							value="death" checked> Mortality </label>
+					<label class="form-check-label"><input class="form-check-input" type="radio" name="map_radio_data"
+							value="new_case"> Morbidity (cases) </label>
+					<label class="form-check-label"><input class="form-check-input" type="radio" name="map_radio_data"
+							value="vaccination"> Vaccination </label>
+					<label class="form-check-label"><input class="form-check-input" type="radio" name="map_radio_data"
+							value="death_rate"> Case fatality rate </label>
+				</div>
+			</div>
+			<div class="country_info_wrapper covid_container">
+				<div class="country_info_container covid_container" id="country_info_container">
+					<h6>Per-country statistics </h6>
+					<div class="cntr_info_line row">
+						<div class="cntr_info_param col"> placeholder
+						</div>
+						<div class="cntr_info_val col"> placeholder
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="block_container mt-4 ">			
+			<iframe src="https://player.vimeo.com/video/663631010?h=4b077a6d17" width="640" height="360" frameborder="0" 
+				allow="autoplay; fullscreen" allowfullscreen></iframe>
+		</div>
+
+		<div class="block_container">
+			<div class="page_block">
+				<div class="donate_wrapper">
+					<h4>Help the Project:</h4>
+					<h5>Email for correspondence</h5>
+					<p>
+						konsoc_pr@protonmail.com
+					</p>
+					<h5>Patreon</h5>
+					<p>
+						<a href="https://patreon.com/konsoc"><img class="donate_logo"
+								src="https://cdn.jsdelivr.net/gh/konsoc-demo/konsoc-demo@main/img/logos/patreon.svg">https://patreon.com/konsoc</a>
+					</p>
+					<h5> Donation Alerts</h5>
+					<p>
+						<a href="https://donationalerts.com/r/konsoc"><img class="donate_logo"
+								src="https://cdn.jsdelivr.net/gh/konsoc-demo/konsoc-demo@main/img/logos/donationalerts.svg">
+								https://donationalerts.com/r/konsoc</a>
+					</p>					
+					<h5>BitCoin</h5>
+					<p>
+						<img class="donate_logo" src="https://cdn.jsdelivr.net/gh/konsoc-demo/konsoc-demo@main/img/logos/bitcoin.svg">
+						bc1q65aklpyt8dewxl03upqscfjfapsg6m5mn4kelg
+					</p>
+				</div>
+			</div>
+
+			<div class="page_block">
+				<div class="p-3 mb-2 bg-danger text-white">
+					<p>
+						WARNING!
+					</p>
+					<p class="text-start ">
+						All who will actively obstruct the dissemination of this information are recognized as CONSCIOUS
+						accomplices of the genocide. They will be held accountable as complicit in a crime against
+						humanity.
+					</p>
+				</div>
+			</div>
+
+			<div class="page_block">
+				<h3>Data sources</h3>
+				<h5>Mortality</h5>
+				<p>
+					<a
+						href="https://github.com/CSSEGISandData/COVID-19/raw/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv">https://github.com/<wbr/>CSSEGISandData/COVID-19/raw/master/<wbr/>csse_covid_19_data/<wbr/>csse_covid_19_time_series/<wbr/>time_series_covid19_deaths_global.csv</a>
+				</p>
+				<h5> New cases </h5>
+				<p>
+					<a
+						href="https://github.com/owid/covid-19-data/raw/master/public/data/jhu/new_cases.csv">https://github.com/owid/<wbr/>covid-19-data/raw/master/<wbr/>public/data/<wbr/>jhu/new_cases.csv</a>
+				</p>
+				<h5>Vaccination</h5>
+				<p>
+					<a
+						href="https://github.com/owid/covid-19-data/raw/master/public/data/vaccinations/vaccinations.csv">https://github.com/owid/covid-19-data/<wbr/>raw/master/public/data/<wbr/>vaccinations/vaccinations.csv</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="tab-pane page_wrapper" id="pg_manifest" role="tabpanel" aria-labelledby="nav-manifest-tab">
+		<h1>ConSoc, manifest</h1>
+
+		<div class="block_container">
+			<div class="page_block text_block">
+
+				<h2>1. The name - "KonSoc"</h2>
+				<p>The general explanation - "Constructor of Social Canon" (a reference to Pereslegin's "construction of
+					cultural canon").
+					In addition, it is an allusion to Ingsoc, to induce fear of historical memory. Finally,
+					a consonant with the word "consortium", which corresponds to the meaning of the Idea.
+				</p>
+
+				<h2>2. Economic basis</h2>
+				<p>Taxes are being paid willfully. Forcible collection of tribute from the "third estate" is prohibited.
+					It is understand,
+					that
+					salaried workers willingly would not pay their tax money. If they so desire, let it be, but normally
+					workers
+					are too poor and their cooperation should not be expected. Taxes therefore need to be paid by
+					entrepreneurs. For
+					entrepreneurs it is normal to pay a large percentage of their profit on their businesses, and for
+					personal
+					use
+					are left with no more than %5. But how does one make them pay, if no one is willing to do so? Well,
+					it
+					is
+					possible, if one understands than entrepreneurs make money off their buyers. When explaining to the
+					buyers, that
+					they
+					can choose who to pay for what.
+					When they will see with their own eyes how their money
+					is divided, then the "socially responsible" entreprenaurs will survive and thrive, but
+					any
+					criminal or irrepsonsible trash will end up killing itself. <br>
+					In conclusion, strictly according to the joke - "to eat mustard voluntarily and with a song".
+				</p>
+				<p>
+					There are ways of so-called "agitations" that entrepeneurs can be liable to:<br>
+					1. Entrepreneurs will release videos of themselves every week, and then buyers will be able to
+					view their "Live" and go to those shops, where their boss is more sympathetic towards. The
+					more
+					that the boss is morally concious, the more he understands his responsibility for everything and
+					later can
+					make concious decisions regarding where and in what amounts to pay his "governmental services".<br>
+					2. Entrepreneurs will in an open and comprehensible manner allow for information dissipation, for
+					which
+					certain "societal goods" a certian percentage of their proceeds will be spent on. Someone will lean
+					on
+					sponsoring hospitals. Another will sponsor educational activities. Yet another will
+					suddenly
+					want to colonice Venus and with his infectious dreaming will be able to infect everyone who can be
+					reached via his propaganda.<br>
+					3. Entrepreneurs will also be judges, unlimited by any legal framework in the making of sentences.
+					However, they will only be able to judge based on Morality, carriers of which they
+					themselves
+					are. Otherwise, by losing the moral authority, entrepreneurs will be relieved of their
+					business, as no one will wish to do business with a crook.<br>
+					Nowadays judges are fully and ABSOLUTELY unaccountable to the people. However, when their welath
+					becomes
+					dependent on their their decisions, here we will find out, how many demons lurked in the shadows for
+					centuries.<br>
+					<br>
+					// The point about entrepreneur-judges - is my personal favourite :) It is also - the most basic
+					building block
+					of the entire Ideology. Here we have morality, economics, aristocratism and mystics ... Remove
+					judgement from Morality
+					and everything falls into an incomprehensible mess of disconnected fantasies.
+				<p>
+
+				<h2>3. Ethics</h2>
+				<p>Base dogmas of the millenia-old historical heritage:<br>
+					1. Do not kill,<br>
+					2. Do not steal,<br>
+					3. Do not give perjury,<br>
+					4. Do not bed your close one's wife.<br>
+					The result of the French Revolution and democratisation of the last 200 years:<br>
+					5. All people are equal in their rights by birth.<br>
+					The new institutionalised dogma:<br>
+					6. Violent coercion in economics is forbidden.<br>
+					<br>
+					// 1-5 are clear in their meaning. 6 however is about the point that no one starves to death
+					nowadays, hence fools
+					can and must be taught by poverty.
+				</p>
+
+				<h2>4. Religion</h2>
+				<p>Religious text for the aristocracy - "The way of Vantals".<br>
+					The main point of the tesis - "you are part of the World and your desires - are the World's desires.
+					If you didn't guess,
+					what the World needs, then you will be fully punished in justice by Reality.". // Normal religious
+					schizophrenia :)
+				</p>
+				<p>
+					My belief:<br>
+					For myself I divide 4 levels of sacral reality: My personal angel-tempter, country
+					egregor, Soul of Gaia, Law of the Universe. Here is a collection of entities of each level, which
+					together
+					unite to a single entity of the next level. All together are called Random, because a person
+					needs
+					a personification of a God. My Random - is simply a reflection of the string of my own reality in
+					the
+					egregor, to which I belong to.<br>
+					Well, and for the masses there will still be Christian Orthodoxy. To each status, their own faith.
+				</p>
+
+				<h2>5. Political structure</h2>
+				<p>A collection of smaaaall countries of 2-3 million. This number - is the maximum, where people can
+					still
+					find agreement
+					with each other (remember the completely bloodless revolution in 3-million populated Armenia with
+					the Belarus
+					crap, with a population of 9 million). Then these small country will unite in a group
+					because
+					it is in everyone's benefit and not because cartels drive slaves under protection of law.<br>
+					"Russia" - is not a country. A country with such a name has never existed. "Russia"
+					is an egregor :)
+				</p>
+
+				<h2>6. The Russian mentality, with their tenacity on the vastness of land</h2>
+				<p>
+					A group of close countries is an egregor. Like USA, European Union, Russia or China.
+					The connectivity of egregor is possible through "natural monopolies", like central bank, railway,
+					gas pipelines and
+					others, which cross entire territory and they are impossible to break into smaller
+					firms,
+					in order to compete for their small deals in their local systems. When one singular energy system
+					tried to
+					divide into micro-firms, s* hit the fan.<br>
+					"Natural monopolies" cannot have competitors, that is the definition of a monopoly.
+					Therefore competition has to be provided in another, non-economic way. Specifically, in a board
+					of directors who are drawn from representatives of each region, to agree on tariffs.
+				</p>
+
+				<h2>7. Military defence</h2>
+				<p>"The Umbrella Principle", when many small entities organised into a single fist against a common
+					enemy.
+					If someone goes crazy in some type of Wahhabism and tries to fight his neighbours, then tens of
+					other close
+					neighbours will organise and will crush the bully via sheer mass.
+				<p>
+
+				<h2>8. Propaganda, to whom whatever is closest to heart</h2>
+				<p>
+					Monarchists - because of aristocracy<br>
+					Communists - because of sociality<br>
+					Liberals - because of economical freedom and liberty<br>
+					Nationalists - because of sharing same spiritual, cultural and moral values between people.<br>
+					The Christian Orthodox, Pagans, Buddhists, schizoterics like me - because of spirituality.<br>
+					<br>
+					I.e. it is an all-inclusive Idea, where everyone will find their right and necessary place.
+				</p>
+
+				<h2> 9. Practical agitation </h2>
+				<p> The "siloviks", who have sworn to protect the people, actually live by banditry, from the plunder of
+					the people. "Siloviks" receive salaries from the state, which collects money from taxes, which, on
+					in fact, just a legalized robbery. <br>
+					<span class="tw-bold"> Banditry </span> - <span class="tst-italic"> is the taking of money by an
+						organized group of persons under threat and / or with the use of armed violence. </span> <br>
+					It is not at all clear how legalized "tax collection" differs from banditry. <br>
+					<br>
+					Concentration camps were also under the law. <br>
+					CONCENTRATION CAMPS. SLAVERY. GULAGS. UNIT 731. HUNGERS. WERE. ALSO. BY. THE. LAW.
+				</p>
+
+				<h2> 10. Morality and legality </h2>
+				<p> More or less homogeneous morality can only be within the boundaries of a 2-3 million community. And
+					on borders, where morality changes, "stability" is ensured by interstate agreements, i.e. by laws.
+				</p>
+
+				<h2> 11. "How the courts will work under Anarcho-capitalism" </h2>
+				<p> 1. It is up to entrepreneurs to judge by their own personal preference and prejudice. Entrepreneurs
+					are responsible for their judgment by their own business and reputation. Entrepreneurs do not have a
+					legal education, so they will not be able to hide behind volumes of criminal codes. <br>
+					2. How the judicial hierarchy will be organized is decided according to local conditions. Somewhere
+					the Judge of Last Instance will be elected by popular vote. Somewhere the highest judicial body will
+					be the Council of Elders. And somewhere they will live at stake, when, as decided by the gathering
+					of the community, then so it will finally be. And the whole crowd will not gather again in this case
+					... Everything is very diverse and it is impossible to give a uniform template for the entire
+					diversity of cultures. <br>
+					For example, I do not know what is going on in the Sharia court. Even more, I don't understand Islam
+					at all. Islam for me is some kind of pile of ... mmm ... abstractions? sophisms? aphorisms?
+					quatrains? some kind of medieval obscurantism? .. No, I don't understand) <br>
+
+				<h2> 12. "Human rights and freedoms" </h2>
+				<p> The guarantee of rights and freedoms must be realized at the physical level. For example, freedom of
+					speech is guaranteed by anonymity, not by the schizophrenic law: "You can say everything except what
+					is prohibited."
+				</p>
+
+				<h2> 13. Education of aristocrats and subjects (subordinates, followers, adherents ...)</h2>
+
+				<p> Buyers with their money express their approval or disapproval of the behavior of aristocratic
+					entrepreneurs. Buyers decide who to live and prosper, and who to beg through the crossings, forever
+					bearing repentance for their sins. Both their sins and the sins of their parents. </p>
+
+				<h2> 14. Infrastructure Implementation </h2>
+				<p> For those who will create clones, copy-paste forks, I recommend paying 0.5% of income to the
+					<i>"master node" of the Network</i> /* profit = income - expenses */. Because: <br>
+					1. It is necessary to maintain the coherence of the System. The human psyche is geared towards
+					hierarchy. Public statements today are worthless, they have completely depreciated and lost
+					meaningful meaning, unlike real money transfers. At the UN, all participating countries pay their
+					membership and crookedly large-scale wars in the world are not present, when the alliance of some
+					countries is against about the same strength of another alliance) <br>
+					2. I want Russia to finally receive rewards for all its sufferings, both in the past and the current
+					century... <br>
+					3. It is a shame that the writer of Capital, who saw the root and essence of capitalism, died in
+					poverty and neglect.
+				</p>
+				<p>
+					Well, that's all ... To put it very, very briefly and only the most important things.
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="tab-pane page_wrapper" id="pg_info" role="tabpanel" aria-labelledby="nav-info-tab">
+		<h1>Info</h1>
+		<div class="block_container">
+			<div class="page_block text-start">
+				<p>
+					KonSoc (aka the Revolution of Consciousness, aka the Beautiful <s>Russia</s> World of the Future,
+					aka "Project Mayhem", aka People's Rule) is the fourth possible model of society today, in addition
+					to the well-known list of alternatives: monarchy, socialism, democracy.
+				</p>
+			</div>
+
+			<div class="page_block">
+				<div class="donate_wrapper">
+					<h4>Help Project:</h4>
+					<h5>Patreon</h5>
+					<p>
+						<a href="https://patreon.com/konsoc"><img class="donate_logo"
+								src="https://cdn.jsdelivr.net/gh/konsoc-demo/konsoc-demo@main/img/logos/patreon.svg">https://patreon.com/konsoc</a>
+					</p>
+					<h5> Donation Alerts</h5>
+					<p>
+						<a href="https://donationalerts.com/r/konsoc"><img class="donate_logo"
+								src="https://cdn.jsdelivr.net/gh/konsoc-demo/konsoc-demo@main/img/logos/donationalerts.svg">
+								https://donationalerts.com/r/konsoc</a>
+					</p>					
+					<h5>BitCoin</h5>
+					<p>
+						<img class="donate_logo" src="https://cdn.jsdelivr.net/gh/konsoc-demo/konsoc-demo@main/img/logos/bitcoin.svg">
+						bc1q65aklpyt8dewxl03upqscfjfapsg6m5mn4kelg
+					</p>
+				</div>
+			</div>
+			<div class="page_block">
+				<div class="donate_wrapper">
+					<h4>Feedback:</h4>
+					<h5>Email for correspondence</h5>
+					<p>
+						konsoc_pr@protonmail.com
+					</p>
+					<h5> Telegram channel</h5>
+					<p>
+						<a href="https://t.me/kon_soc_world">
+							<img class="soc_logo" src="https://cdn.jsdelivr.net/gh/konsoc-demo/konsoc-demo@main/img/logos/telegram.svg">
+							https://t.me/kon_soc_world</a>						
+					</p>	
+				</div>
+			</div>			
+		</div>
+	</div>
+
+	<div class="page_wrapper">
+		<div class="block_container">
+			<div class="page_block">
+
+				<div id="disqus_thread"></div>
+
+				<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
+						powered
+						by
+						Disqus.</a></noscript>
+
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count Red Black Pixels</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://www.marvinj.org/releases/marvinj-0.7.js"></script>
+</head>
+<body>
+
+<div id="time"></div>
+<canvas id="canvas" width="2800" height="2053"></canvas>
+<script>
+    var time = new Date().getTime();
+
+    var canvas = document.getElementById("canvas");
+    image = new MarvinImage();
+    image.load("/files/images/count_max.png", imageLoaded);
+
+    function imageLoaded(){
+
+        var cntRed = 0, cntBlack = 0;
+        for(var y=0; y<image.getHeight(); y++){
+            for(var x=0; x<image.getWidth(); x++){
+                var r = image.getIntComponent0(x,y);
+                var g = image.getIntComponent1(x,y);
+                var b = image.getIntComponent2(x,y);
+
+                if(r > 220 && g < 20 && b < 20  )
+                    cntRed++;
+                if(r < 20 && g < 20 && b < 20  )
+                    cntBlack++;
+            }
+        }
+        image.draw(canvas);
+
+        $("#time").html("Red pixels: "+ cntRed + "<br>Black pixels: "+ cntBlack);
+    }
+</script>
+</body>
+</html>
