@@ -14,35 +14,11 @@ function initData(sLocale) {
 		return series;
 	};
 
-	//	var apexLocales = [];
 	var apexCurrentLocale = sLocale || $("#btn_current_locale").attr("data-locale") || 'en';
 	__setLocale(apexCurrentLocale);
 
-	/*
-	$.getJSON('https://cdn.jsdelivr.net/npm/apexcharts/dist/locales/' + apexCurrentLocale + '.json', function (data) {
-
-		//Apex.chart = {			locales: [data], 	defaultLocale: apexCurrentLocale	};
-
-
-		//	apexLocales.push();
-	});
-*/
 	requestRenderData();
 
-
-	/*
-	function join(t, a, s) {
-		function format(m) {
-			let f = new Intl.DateTimeFormat('ru', m);
-			return f.format(t);
-		}
-		return a.map(format).join(s);
-	}
-	
-	let a = [{day: 'numeric'}, {month: 'short'}, {year: 'numeric'}];
-	let s = join(new Date, a, '-');
-	console.log(s);
-	*/
 	function requestRenderData() {
 
 		var apexYformatter = function (value) {
@@ -75,13 +51,8 @@ function initData(sLocale) {
 		};
 
 
-		//	var monthShort = ['янв.', 'фев.', 'мар.', 'апр.', 'мая', 'июн.', 'июл.', 'авг.', 'сен.', 'окт.', 'ноя.', 'дек.'];
 
-		//	var date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
-
-		// ask date 
 		var options = { year: 'numeric', month: 'short', day: 'numeric' };
-		// → "Donnerstag, 20. Dezember 2012"
 
 
 		var userLocale = function () { return navigator.language || navigator.browserLanguage || (navigator.languages || ["en"])[0] }();
@@ -101,16 +72,7 @@ function initData(sLocale) {
 
 			return dt.toLocaleString(lc, localeMonthOptions);
 
-			//	if(value == undefined)
-			//		return "wrong value";
-
-			//	return value.getDate() + " " + monthShort[value.getMonth()] + " " +
-			//		("0"+value.getFullYear()).slice(-2);
-
-			//return value;
-			//opts.dateFormatter(new Date(timestamp)).format("dd MMM")
-
-		}
+	}
 
 
 		var chartCovidOptions = {
@@ -192,8 +154,6 @@ function initData(sLocale) {
 							filename: undefined,
 							columnDelimiter: ',',
 							headerCategory: __('Date'),
-							//	headerValue: 'value',
-							//headerValue: 'value',
 							dateFormatter: function (timestamp) {
 								return localeDate(timestamp)
 							}
@@ -246,9 +206,7 @@ function initData(sLocale) {
 
 			xaxis: {
 				type: 'datetime',
-				//tickAmount:4,
 				labels: {
-					//show: tr,
 					rotate: 0,
 					rotateAlways: false,
 					hideOverlappingLabels: true,
@@ -277,9 +235,6 @@ function initData(sLocale) {
 			},
 			yaxis: [
 				{
-					//min:-400,
-					//forceNiceScale: false,
-					//		show:false,
 					showAlways: true,
 					seriesName: __('mortality'),
 					axisTicks: {
@@ -306,9 +261,6 @@ function initData(sLocale) {
 					}
 				},
 				{
-					//		show:false,
-					//showAlways: true,
-
 					min: 0,
 					seriesName: __('new_cases'),
 					axisTicks: {
@@ -328,13 +280,10 @@ function initData(sLocale) {
 					},
 				},
 				{
-					//		show:false,
-
-					//showAlways: true,
 					min: 0,
 					opposite: true,
 					seriesName: __('vaccinated_per_day'),
-					//..	opposite: true,
+					
 					axisTicks: {
 						show: true,
 					},
@@ -350,13 +299,8 @@ function initData(sLocale) {
 						formatter: apexYformatter
 
 					},
-					//title: {text: "Revenue (thousand crores)",style: {								color: '#FEB019',							}						}
 				},
 				{
-					//		show:false,
-
-					//showAlways: true,
-
 					min: 0,
 					max: 6,
 					forceNiceScale: false,
@@ -382,14 +326,6 @@ function initData(sLocale) {
 				}
 			],
 			labels: {},
-			tooltip: {
-				fi__xed: {
-					enabled: true,
-					position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
-					offsetY: 30,
-					offsetX: 60
-				},
-			},
 			legend: {
 				position: "top",
 				horizontalAlign: 'left',
@@ -398,8 +334,6 @@ function initData(sLocale) {
 		};
 		var chartSelectedCountry = new ApexCharts(document.querySelector("#chart_covid"), chartCovidOptions);
 		chartSelectedCountry.render();
-
-		//This method allows you to hide the visible series. If the series is already hidden, this method doesn’t affect it.
 
 		var optionsVaccinationPercent = {
 			series: [{
@@ -533,8 +467,6 @@ function initData(sLocale) {
 					offsetX: 0,
 					offsetY: 0,
 					format: undefined,
-					//	formatter: formatXaxeLabel,
-					//		datetimeUTC: true,
 					datetimeFormatter: {
 						year: 'yyyy',
 						month: "MMM 'yy",
@@ -606,8 +538,6 @@ function initData(sLocale) {
 				}
 				arRet.push([arSrc[r - 1][0], smTl / nRng]);
 			}
-
-			//if (addTail !== undefined) 	arRet.push(addTail);
 
 			return arRet;
 		}
@@ -915,25 +845,10 @@ function initData(sLocale) {
 					alert("Accuracy not selected!")
 			}
 
-			/*
-				elm =countriesCovid[h];
-				elm.dataVacSingle_total = [];
-				elm.data_day = [];
-				elm.dataVacFull_total = [];
-				elm.dataVacFull_day = [];
-				elm.data_total = [];
-				elm.dataCases_day = [];
-			*/
 			if ((srsDeath.length !== srsNewCase.length) ||
 				(srsDeath.length !== srsVac.length))
 				normilizeSeriesByTime(srsDeath, srsNewCase, srsVac);
 
-
-
-			//		if (apexLocales.length) {
-			//chartCovidOptions.chart.locales = apexLocales;
-			//chartCovidOptions.chart.defaultLocale = apexCurrentLocale;
-			//		}
 
 			var chk = $('#slct_chart_size option:checked');
 			var chHeight = chk.attr('data-height');
@@ -977,8 +892,6 @@ function initData(sLocale) {
 								filename: undefined,
 								columnDelimiter: ',',
 								headerCategory: __('Date'),
-								//	headerValue: 'value',
-								//headerValue: 'value',
 								dateFormatter: function (timestamp) {
 									return localeDate(timestamp)
 								}
@@ -1056,15 +969,7 @@ function initData(sLocale) {
 					align: 'left',
 					offsetX: 110
 				},
-				labels: {},
-				tooltip: {
-					fi__xed: {
-						enabled: true,
-						position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
-						offsetY: 30,
-						offsetX: 60
-					},
-				},
+				labels: {},	
 				legend: {
 					position: "top",
 					horizontalAlign: 'left',
@@ -1129,9 +1034,6 @@ function initData(sLocale) {
 				],
 				yaxis: [
 					{
-						//min:-400,
-						//forceNiceScale: false,
-						//		show:false,
 						showAlways: true,
 						seriesName: __('mortality'),
 						axisTicks: {
@@ -1158,9 +1060,6 @@ function initData(sLocale) {
 						}
 					},
 					{
-						//		show:false,
-						//showAlways: true,
-
 						min: 0,
 						seriesName: __('new_cases'),
 						axisTicks: {
@@ -1201,14 +1100,8 @@ function initData(sLocale) {
 							},
 							formatter: apexYformatter
 
-						},
-						//title: {text: "Revenue (thousand crores)",style: {								color: '#FEB019',							}						}
-					},
+						},					},
 					{
-						//		show:false,
-
-						//showAlways: true,
-
 						min: 0,
 						max: 0.06,
 						forceNiceScale: false,
@@ -1343,43 +1236,7 @@ function initData(sLocale) {
 					chartSelectedCountry.hideSeries(s);
 			}
 
-			// update data for collapsed series
-			/*
-				var isShow = false;
-
-							for(var i =0; i < config.globals.collapsedSeriesIndices.length; i++)
-							{
-								if(config.globals.collapsedSeriesIndices[i] === seriesIndex)
-								{
-									isShow = true;
-									break;
-								}
-							}
-
-							objSeriesShown[config.globals.seriesNames[seriesIndex]] = isShow;
-
-							chartContext.updateSeries(arSeriesData);
-
-							var objCurrNms = {};
-							for(i =0; i < config.globals.seriesNames.length; i++)
-							{
-								objCurrNms[config.globals.seriesNames[i]] = true;
-							}
-
-							for(var s in objSeriesShown){
-								if(!objSeriesShown.hasOwnProperty(s))
-									continue;
-								if(objCurrNms[s] === undefined)
-									continue;
-
-								if(objSeriesShown[s])
-									chartSelectedCountry.showSeries(s);
-								else
-									chartSelectedCountry.hideSeries(s);
-							}
-						}
-*/
-
+		
 			if (countriesCovid[countryID].timeVacSingle_percent === undefined) {
 
 				countriesCovid[countryID].timeVacSingle_percent = [];
@@ -1416,12 +1273,6 @@ function initData(sLocale) {
 			else
 				optionsVaccinationPercent.series[1].data = countriesCovid[countryID].timeVacFull_percent;
 
-			//		if (apexLocales.length) {
-			//optionsVaccinationPercent.chart.locales = apexLocales;
-			//optionsVaccinationPercent.chart.defaultLocale = apexCurrentLocale;
-			//		}
-
-			//chartCovidOptions.chart.height = chHeight;
 			optionsVaccinationPercent.chart.width = chWidth;
 
 
@@ -1465,7 +1316,6 @@ function initData(sLocale) {
 
 		var countriesCovid = {};
 
-		/*
 
 				function chageMapDate_old(pos) {
 
@@ -1476,13 +1326,7 @@ function initData(sLocale) {
 						bAllContinents = false;
 					});
 
-		//			$("").each()
-			//		$( this ).
-			//		var oContinents = {
-				//		'Europe': document.getElementById("chk_map_europe").checked ? 1 : undefined,
-					//	'Asia': document.getElementById("chk_map_asia").checked ? 1 : undefined,
-		//			};
-
+		
 					if (pos === undefined)
 						pos = document.getElementById("dateRange").value;
 
@@ -1704,7 +1548,7 @@ function initData(sLocale) {
 					mapDeaths.applyData(svgMapDataDeath.data);
 
 				}
-			*/
+
 		function chageMapDate(pos) {
 
 			var objContinents = {};
