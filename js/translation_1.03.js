@@ -88,7 +88,9 @@ var __tr = {
       //fatality_rate: 'коэффициент смертности',
       person_short: 'чел.',
       data_processing: 'Обработка данных...',
-
+      Date: 'Date',
+      country: 'страна',
+      
 
     },
     en: {
@@ -113,6 +115,9 @@ var __tr = {
       //fatality_rate = 'case fatality rate',
       person_short: 'pers.',
       data_processing: 'Data processing...',
+      Date: 'Date',
+      country: 'country',
+
     }
   }
 };
