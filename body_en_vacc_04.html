@@ -138,16 +138,21 @@
 									id="chk_map_relative">Relative to population</label>
 						</div>
 					</div>
+
 					<div class="col-lg-6">
 						<div class="input-group">
-							<label for="slct_map_time">Timeframe: </label>
-							<select class="ms-2 form-select form-select-sm" aria-label=".form-select-sm example"
-								id="slct_map_time">
-								<option data-time="7days" selected>7 days</option>
-								<option data-time="all_time">Total/cumulative</option>
+							<label for="slct_map_time">Timeframe:</label>
+							<select class="ms-2 form-select form-select-sm" aria-label=".form-select-sm example" id="slct_map_time">
+								<option data-days="all_time" selected="">All time</option>
+								<option data-days="7">7 days</option>
+								<option data-days="30">Month</option>
+								<option data-days="92">3 months</option>
+								
 							</select>
 						</div>
 					</div>
+
+					
 				</div>
 				<div class="row-not">
 					<label><input type="checkbox" class="form-check-input chk_map" id="chk_map_europe">Europe</label>
