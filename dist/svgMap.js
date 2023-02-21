@@ -1789,5 +1789,3 @@ function svgMapWrapper(svgPanZoom) {
   var svgMap = svgMapWrapper(svgPanZoom);
   return svgMap;
 });
-
-//# sourceMappingURL=svgMap.js.map

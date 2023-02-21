@@ -1,0 +1,47 @@
+<div id="load_curtain">
+	<div id="load_wrapper">
+		<h3> Загрузка данных</h3>
+		<p class="mortality">
+			смертность: <img src="https://cdn.jsdelivr.net/gh/konsoc/konsoc-files-1@main/img/icons/reload.svg" class="icon load" />
+			<img src="https://cdn.jsdelivr.net/gh/konsoc/konsoc-files-1@main/img/icons/ok.svg" class="icon ok" />
+		</p>
+		<p class="newcases">
+			новые случаи: <img src="https://cdn.jsdelivr.net/gh/konsoc/konsoc-files-1@main/img/icons/reload.svg" class="icon load" />
+			<img src="https://cdn.jsdelivr.net/gh/konsoc/konsoc-files-1@main/img/icons/ok.svg" class="icon ok" />
+		</p>
+		<p class="vaccination">
+			вакцинация: <img src="https://cdn.jsdelivr.net/gh/konsoc/konsoc-files-1@main/img/icons/reload.svg" class="icon load" />
+			<img src="https://cdn.jsdelivr.net/gh/konsoc/konsoc-files-1@main/img/icons/ok.svg" class="icon ok" />
+		</p>
+	</div>
+</div>
+
+<div id="page_body" style="top: -10000000px; "></div>
+
+<footer class="page_footer" style="display: none;">
+	
+</footer>
+
+<script>
+	$.ajax({
+		url: urlBodyLoad,
+		success: function (result) {
+			var div = document.getElementById('page_body');
+			div.innerHTML = result;
+
+			initData(locale2code);
+
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			var strErr = "Downloading data error";
+			if (textStatus)
+				strErr += "\ntextStatus: " + textStatus;
+
+			if (errorThrown)
+				strErr += "\nerrorThrown: " + errorThrown;
+			alert(strErr);
+		}
+	});
+
+
+</script>
